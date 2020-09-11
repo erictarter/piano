@@ -287,20 +287,31 @@ window.addEventListener('keydown', e => {
         if (i.id.toUpperCase() === data[e.keyCode]) {
           i.style.background = 'rgb(255, 214, 138)';
           i.style.borderTopColor = 'rgb(52, 52, 52)';
-          setTimeout(() => {
-            i.style.background = 'white';
-            i.style.borderTopColor = 'white';
-          }, keyDur);
         }
       });
       blackNotes.forEach(i => {
         if (i.id.toUpperCase() === data[e.keyCode]) {
           i.style.background = 'rgb(255, 214, 138)';
           i.style.borderTopColor = 'rgb(52, 52, 52)';
-          setTimeout(() => {
-            i.style.background = 'black';
-            i.style.borderTopColor = 'white';
-          }, keyDur);
+        }
+      });
+    });
+});
+
+window.addEventListener('keyup', e => {
+  fetch('keyCodes.json')
+    .then(response => response.json())
+    .then(data => {
+      whiteNotes.forEach(i => {
+        if (i.id.toUpperCase() === data[e.keyCode]) {
+          i.style.background = 'white';
+          i.style.borderTopColor = 'white';
+        }
+      });
+      blackNotes.forEach(i => {
+        if (i.id.toUpperCase() === data[e.keyCode]) {
+          i.style.background = 'black';
+          i.style.borderTopColor = 'white';
         }
       });
     });
