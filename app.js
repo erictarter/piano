@@ -71,7 +71,7 @@ durationSelect.addEventListener('change', e => {
       duration = '8n';
       keyDur = 250;
       break;
-    case '100h':
+    case '100':
       duration = '16n';
       keyDur = 150;
       break;
