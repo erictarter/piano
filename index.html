@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.52/Tone.js"
+      integrity="sha512-IfuMOipT0Lmz/90cqRmceryNu+jH2m3wNE+KI44KBk/LPX3+OceXQ0oA3ZSMP+VZd7K0jterp2/8t70z7Ap2kg=="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styes.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="selection">
+      <div class="chord-select select">
+        <label for="chords">Major Chords</label>
+        <select name="chords" id="chords">
+          <option value="s">Chords</option>
+          <option value="c">C</option>
+          <option value="c#">C#</option>
+          <option value="d">D</option>
+          <option value="e">E</option>
+          <option value="f">F</option>
+          <option value="f#">F#</option>
+          <option value="g">G</option>
+          <option value="g#">G#</option>
+          <option value="a">A</option>
+          <option value="a#">Bb</option>
+          <option value="b">B</option>
+        </select>
+      </div>
+      <div class="scale-select select">
+        <label for="scales">Major Scales</label>
+        <select name="scales" id="scales">
+          <option value="s">Scales</option>
+          <option value="c">C</option>
+          <option value="c#">C#</option>
+          <option value="d">D</option>
+          <option value="d#">D#</option>
+          <option value="e">E</option>
+          <option value="f">F</option>
+          <option value="f#">F#</option>
+          <option value="g">G</option>
+          <option value="g#">G#</option>
+          <option value="a">A</option>
+          <option value="a#">Bb</option>
+          <option value="b">B</option>
+        </select>
+      </div>
+
+      <div class="sound-select select">
+        <label for="sound">Sound Settings</label>
+        <select name="sound" id="sound">
+          <option value="piano">Piano</option>
+          <option value="synth">Synth</option>
+          <option value="synth-alt">Synth-Alt</option>
+          <option value="voilin">Cello</option>
+        </select>
+      </div>
+      <div class="duration-select select">
+        <label for="duration">Note Duration</label>
+        <select name="duration" id="duration">
+          <option value="1">Whole</option>
+          <option value="2">2M</option>
+          <option value="25">1/4</option>
+          <option selected value="50">8th</option>
+          <option value="75">16th</option>
+          <option value="100">32th</option>
+        </select>
+      </div>
+    </div>
+    <div class="piano-container" id="piano-container">
+      <div class="c1-e1">
+        <div class="white" id="c2"></div>
+        <div class="black-1 black" id="c#2"></div>
+        <div class="white" id="d2"></div>
+        <div class="black-2 black" id="d#2"></div>
+        <div class="white" id="e2"></div>
+      </div>
+      <div class="f1-b1">
+        <div class="white" id="f2"></div>
+        <div class="sblack-1 black" id="f#2"></div>
+        <div class="white" id="g2"></div>
+        <div class="sblack-2 black" id="g#2"></div>
+        <div class="white" id="a2"></div>
+        <div class="sblack-3 black" id="a#2"></div>
+        <div class="white" id="b2"></div>
+      </div>
+      <div class="c2-e2">
+        <div class="white" id="c3"></div>
+        <div class="black-1 black" id="c#3"></div>
+        <div class="white" id="d3"></div>
+        <div class="black-2 black" id="d#3"></div>
+        <div class="white" id="e3"></div>
+      </div>
+      <div class="f2-b2">
+        <div class="white" id="f3"></div>
+        <div class="sblack-1 black" id="f#3"></div>
+        <div class="white" id="g3"></div>
+        <div class="sblack-2 black" id="g#3"></div>
+        <div class="white" id="a3"></div>
+        <div class="sblack-3 black" id="a#3"></div>
+        <div class="white" id="b3"></div>
+      </div>
+      <div class="c3-e3">
+        <div class="white" id="c4"></div>
+        <div class="black-1 black" id="c#4"></div>
+        <div class="white" id="d4"></div>
+        <div class="black-2 black" id="d#4"></div>
+        <div class="white" id="e4"></div>
+      </div>
+    </div>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="chords.js"></script>
+    <script type="module" src="scales.js"></script>
+    <script type="module" src="notes.js"></script>
+  </body>
+</html>
