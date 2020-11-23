@@ -27,6 +27,7 @@ const scaleSelect = document.getElementById('scales');
 
 const soundSelect = document.querySelector('.sound-select');
 const durationSelect = document.querySelector('.duration-select');
+const showNote = document.getElementById('show-note');
 
 // SETTINGS
 
@@ -80,6 +81,12 @@ durationSelect.addEventListener('change', e => {
   }
 });
 
+// SHOW NOTE FUNCTION
+function displayNote(note) {
+  showNote.style.display = 'block';
+  showNote.innerText = note;
+}
+
 // PLAY NOTES FUNTIONALITY
 
 whiteNotes.forEach(wn => {
@@ -94,6 +101,7 @@ whiteNotes.forEach(wn => {
     let note = e.target.id.toUpperCase();
     await Tone.start();
     sound.triggerAttackRelease(note, duration);
+    displayNote(note[0]);
   });
 });
 
@@ -109,11 +117,13 @@ blackNotes.forEach(bn => {
     let note = e.target.id.toUpperCase();
     await Tone.start();
     sound.triggerAttackRelease(note, duration);
+    displayNote(note.slice(0, 2));
   });
 });
 
 // CHORD FUNCTIONALITY
 chordsSelect.addEventListener('change', async e => {
+  showNote.style.display = 'none';
   await Tone.start();
   let notes = [];
   let highlight = [];
@@ -173,8 +183,10 @@ scaleSelect.addEventListener('change', async e => {
     sound.triggerAttackRelease(notes[1], duration);
     if (highlight[0].length === 2) {
       document.getElementById(highlight[0]).style.background = 'white';
+      displayNote(highlight[0][0].toUpperCase());
     } else {
       document.getElementById(highlight[0]).style.background = 'black';
+      displayNote(highlight[0].slice(0, 2).toUpperCase());
     }
     document.getElementById(highlight[0]).style.borderTopColor = 'white';
     document.getElementById(highlight[1]).style.background =
@@ -187,8 +199,10 @@ scaleSelect.addEventListener('change', async e => {
     sound.triggerAttackRelease(notes[2], duration);
     if (highlight[1].length === 2) {
       document.getElementById(highlight[1]).style.background = 'white';
+      displayNote(highlight[1][0].toUpperCase());
     } else {
       document.getElementById(highlight[1]).style.background = 'black';
+      displayNote(highlight[1].slice(0, 2).toUpperCase());
     }
     document.getElementById(highlight[2]).style.background =
       'rgb(255, 214, 138)';
@@ -200,8 +214,10 @@ scaleSelect.addEventListener('change', async e => {
     sound.triggerAttackRelease(notes[3], duration);
     if (highlight[2].length === 2) {
       document.getElementById(highlight[2]).style.background = 'white';
+      displayNote(highlight[2][0].toUpperCase());
     } else {
       document.getElementById(highlight[2]).style.background = 'black';
+      displayNote(highlight[2].slice(0, 2).toUpperCase());
     }
     document.getElementById(highlight[3]).style.background =
       'rgb(255, 214, 138)';
@@ -210,11 +226,14 @@ scaleSelect.addEventListener('change', async e => {
     document.getElementById(highlight[2]).style.borderTopColor = 'white';
   }, 600);
   setTimeout(() => {
+    console.log(notes[4]);
     sound.triggerAttackRelease(notes[4], duration);
     if (highlight[3].length === 2) {
       document.getElementById(highlight[3]).style.background = 'white';
+      displayNote(highlight[3][0].toUpperCase());
     } else {
       document.getElementById(highlight[3]).style.background = 'black';
+      displayNote(highlight[3].slice(0, 2).toUpperCase());
     }
     document.getElementById(highlight[4]).style.background =
       'rgb(255, 214, 138)';
@@ -226,8 +245,10 @@ scaleSelect.addEventListener('change', async e => {
     sound.triggerAttackRelease(notes[5], duration);
     if (highlight[4].length === 2) {
       document.getElementById(highlight[4]).style.background = 'white';
+      displayNote(highlight[4][0].toUpperCase());
     } else {
       document.getElementById(highlight[4]).style.background = 'black';
+      displayNote(highlight[4].slice(0, 2).toUpperCase());
     }
     document.getElementById(highlight[5]).style.background =
       'rgb(255, 214, 138)';
@@ -239,8 +260,10 @@ scaleSelect.addEventListener('change', async e => {
     sound.triggerAttackRelease(notes[6], duration);
     if (highlight[5].length === 2) {
       document.getElementById(highlight[5]).style.background = 'white';
+      displayNote(highlight[5][0].toUpperCase());
     } else {
       document.getElementById(highlight[5]).style.background = 'black';
+      displayNote(highlight[5].slice(0, 2).toUpperCase());
     }
     document.getElementById(highlight[6]).style.background =
       'rgb(255, 214, 138)';
@@ -252,8 +275,10 @@ scaleSelect.addEventListener('change', async e => {
     sound.triggerAttackRelease(notes[7], duration);
     if (highlight[6].length === 2) {
       document.getElementById(highlight[6]).style.background = 'white';
+      displayNote(highlight[6][0].toUpperCase());
     } else {
       document.getElementById(highlight[6]).style.background = 'black';
+      displayNote(highlight[6].slice(0, 2).toUpperCase());
     }
     document.getElementById(highlight[7]).style.background =
       'rgb(255, 214, 138)';
@@ -264,8 +289,10 @@ scaleSelect.addEventListener('change', async e => {
   setTimeout(() => {
     if (highlight[7].length === 2) {
       document.getElementById(highlight[7]).style.background = 'white';
+      displayNote(highlight[7][0].toUpperCase());
     } else {
       document.getElementById(highlight[7]).style.background = 'black';
+      displayNote(highlight[7].slice(0, 2).toUpperCase());
     }
     document.getElementById(highlight[7]).style.borderTopColor = 'white';
   }, 1600);
@@ -287,12 +314,15 @@ window.addEventListener('keydown', e => {
         if (i.id.toUpperCase() === data[e.keyCode]) {
           i.style.background = 'rgb(255, 214, 138)';
           i.style.borderTopColor = 'rgb(52, 52, 52)';
+          console.log(data[e.keyCode]);
+          displayNote(data[e.keyCode][0]);
         }
       });
       blackNotes.forEach(i => {
         if (i.id.toUpperCase() === data[e.keyCode]) {
           i.style.background = 'rgb(255, 214, 138)';
           i.style.borderTopColor = 'rgb(52, 52, 52)';
+          displayNote(data[e.keyCode].slice(0, 2));
         }
       });
     });
@@ -316,3 +346,5 @@ window.addEventListener('keyup', e => {
       });
     });
 });
+
+// ERROR OCCURS ON TOP ROW KEY DOWN WHEN ISNT BLACK NOTE
