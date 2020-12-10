@@ -299,7 +299,8 @@ scaleSelect.addEventListener('change', async e => {
 });
 
 // KEYDOWN NOTE FUNCTIONALITY
-window.addEventListener('keydown', e => {
+window.addEventListener('keydown', async e => {
+  await Tone.start();
   whiteNotes.forEach(i => {
     i.style.background = 'white';
   });
