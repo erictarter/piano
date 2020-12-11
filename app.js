@@ -53,11 +53,11 @@ soundSelect.addEventListener('change', e => {
 durationSelect.addEventListener('change', e => {
   switch (e.target.value) {
     case '1':
-      duration = '2n';
+      duration = '1n';
       keyDur = 1000;
       break;
     case '2':
-      duration = '1n';
+      duration = '2n';
       keyDur = 2000;
       break;
     case '25':
@@ -310,13 +310,14 @@ window.addEventListener('keydown', async e => {
   fetch('keyCodes.json')
     .then(response => response.json())
     .then(data => {
-      sound.triggerAttackRelease(data[e.keyCode], duration);
+      // sound.triggerAttackRelease(data[e.keyCode], duration);
       whiteNotes.forEach(i => {
         if (i.id.toUpperCase() === data[e.keyCode]) {
           i.style.background = 'rgb(255, 214, 138)';
           i.style.borderTopColor = 'rgb(52, 52, 52)';
           console.log(data[e.keyCode]);
           displayNote(data[e.keyCode][0]);
+          sound.triggerAttackRelease(data[e.keyCode], duration);
         }
       });
       blackNotes.forEach(i => {
@@ -324,6 +325,7 @@ window.addEventListener('keydown', async e => {
           i.style.background = 'rgb(255, 214, 138)';
           i.style.borderTopColor = 'rgb(52, 52, 52)';
           displayNote(data[e.keyCode].slice(0, 2));
+          sound.triggerAttackRelease(data[e.keyCode], duration);
         }
       });
     });
