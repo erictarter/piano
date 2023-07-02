@@ -45,9 +45,11 @@ body {
     opacity: 1 !important;
     text-align: center;
   }
+}
 
+@media (max-width: 991px) {
   .piano-container {
-    margin-top: 7.5em;
+    margin-top: 10.5em;
   }
 }
 
