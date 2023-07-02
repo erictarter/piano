@@ -46,6 +46,10 @@ body {
     opacity: 1 !important;
     text-align: center;
   }
+
+  .piano-container {
+    min-height: 175px;
+  }
 }
 
 .flip-message {
@@ -78,7 +82,6 @@ select {
   border-left: 3rem solid black;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-  z-index: 999999;
   cursor: pointer;
   position: relative;
   width: 100%;
