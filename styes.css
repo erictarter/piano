@@ -50,13 +50,15 @@ body {
 @media (max-width: 991px) {
   .piano-container {
     margin-top: 14.5em;
-    transform: translateY(-14.5em);
+  }
+
+  body {
+    padding-top: 0;
   }
 }
 
 .flip-message {
   opacity: 0;
-  transform: translateY(-12.5em);
   z-index: -10;
 }
 
